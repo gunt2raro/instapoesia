@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" ng-app="fragmapoetas_app">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>instapoesía.com</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/starter-template.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="https://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
+    
+  </head>
+  
+  <body>
+    
+        <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navbarController">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand logo" href="/">instapoesía.com</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <div class="navbar-form navbar-right">
+                        <a id="login" ng-show="login.show" href="#" ><i class="fa fa-sign-in"></i></a>
+                        <a id="write" href="#" ng-show="false"><i class="fa fa-pencil-square-o"></i></a>
+                    </div>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+        
+        <div class="container">
+            <hr />
+            <div class="row">
+                <div id="login_form" class="col-md-12 ">
+                    <div class="form-group box_controls" ng-controller="login_controller">
+                        <div class="row">
+                            <div class="col-md-2 pull-right" >
+                                <a ng-click="close_window_login_click()" id="close_window_login" href="#" ><i class="fa fa-times-circle"></i></a>
+                            </div>
+                        </div>
+                        <form action="/" id="theLogin">
+                            <p>
+                                <input ng-model="email" class="form-control" type="text" name="email" id="email" placeholder="Email"  />
+                            </p>
+                            <p>
+                                <input ng-model="password" class="form-control" type="password" name="password" id="username" placeholder="Contraseña" />
+                            </p>
+                            <button type="button" class="btn btn-sm btn-success" ng-click="submit()">Login</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="register_form" class="col-md-12 ">
+                    <div class="form-group box_controls">
+                        <div class="row">
+                            <div class="col-md-2 pull-right" >
+                                <a id="close_window_register" href="#" ><i class="fa fa-times-circle"></i></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="write_form" class="col-md-12 ">
+                    
+                    <div class="form-group box_controls">
+                        <div class="row">
+                            <div class="col-md-2 pull-right" >
+                                <a id="close_window_write" href="#" ><i class="fa fa-times-circle"></i></a>
+                            </div>
+                        </div>
+                        <p>
+                            <input ng-model="title" class="form-control" type="text"  placeholder="título">
+                        </p>
+                        <p>
+                            <textarea ng-model="writing" class="form-control" rows="10" id="writing"  placeholder="fragmento"></textarea>
+                        </p>
+                        <p>
+                            <button class="btn btn-sm btn-info">Post</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div ng-controller="fragmas" class="row">
+                
+                <div class="col-md-3" id="col_num_1">
+                    <div class="fragma">
+                        <h2>{{title}}</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            {{writing}}
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragma">
+                        <h2>Possitne nobis hoc</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            Quare hoc videndum est, ctus; Ita multa dicunt, quae vix intellegam. cuntur a Chryippo. Quid nunc honeste dicit? Sed plane dicit quod intellegit.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragma">
+                        <h2>Neminem videbis ita laudatum</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            Ut pulsi recurrant? Neminem videbis ita laudatum, ut artifex callidus comparandarum voluptatum diceretur. Ab his oratores, ab his imperatores ac rerum publicarum principes extiterunt. Tum, Quintus et Pomponius cum idem se velle dixissent, Piso exorsus est. Ratio quidem vestra sic cogit. Satis est ad hoc responsum. Ille vero, si insipiens-quo certe, quoniam tyrannus -, numquam beatus; Satis est ad hoc responsum.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" id="col_num_2">
+                    <div class="fragma">
+                        <h2>Possitne nobis hoc</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Itaque hic ipse iam pridem est reiectus; Ita multa dicunt, quae vix intellegam. Quae diligentissime contra Aristonem dicuntur a Chryippo. Quid nunc honeste dicit? Sed plane dicit quod intellegit.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragma">
+                        <h2>Neminem videbis ita laudatum</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            Ut pulsi recurrant? Neminem videbis ita laudatum, ut artifex callidus comparandarum voluptatum diceretur. Ab his oratores, ab his imperatores ac rerum publicarum principes extiterunt. Tum, Quintus et Pomponius cum idem se velle dixissent, Piso exorsus est. Ratio quidem vestra sic cogit. Satis est ad hoc responsum. Ille vero, si insipiens-quo certe, quoniam tyrannus -, numquam beatus; Satis est ad hoc responsum.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragma">
+                        <h2>Possitne nobis hoc</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            Quare hoc videndum est, possitne nobis hoc ratio philosophorum dare. Itaque hic ipse iam pridem est reiectus; Ita multa dicunt, quae vix intellegam. Quae diligentissime contra Aristonem dicuntur a Chryippo. Quid nunc honeste dicit? Sed plane dicit quod intellegit.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragma">
+                        <h2>Neminem videbis ita laudatum</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            Ut pulsi recurrant? Neminem videbis ita laudatum, ut artifex callidus comparandarum voluptatum diceretur. Ab his oratores, ab his imperatores ac rerum publicarum principes extiterunt. Tum, Quintus et Pomponius cum idem se velle dixissent, Piso exorsus est. Ratio quidem vestra sic cogit. Satis est ad hoc responsum. Ille vero, si insipiens-quo certe, quoniam tyrannus -, numquam beatus; Satis est ad hoc responsum.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" id="col_num_3">
+                    <div class="fragma">
+                        <h2>Possitne nobis hoc</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            Ego vero volo in virtute vim esse quam maximam; Nemo nostrum istius generis asotos iucunde putat vivere. At iste non dolendi status non vocatur voluptas. Quodcumque in mentem incideret, et quodcumque tamquam occurreret.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragma">
+                        <h2>Neminem videbis ita laudatum</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            Ut pulsi recurrant? Neminem videbis ita laudatum, ut artifex callidus comparandarum voluptatum diceretur. Ab his oratores, ab his imperatores ac rerum publicarum principes extiterunt. Tum, Quintus et Pomponius cum idem se velle dixissent, Piso exorsus est. Ratio quidem vestra sic cogit. Satis est ad hoc responsum. Ille vero, si insipiens-quo certe, quoniam tyrannus -, numquam beatus; Satis est ad hoc responsum.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" id="col_num_4">
+                    <div class="fragma">
+                        <h2>Neminem videbis ita laudatum</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <p>
+                            Ut pulsi recurrant? Neminem videbis ita laudayrannus -, numquam beatus; Satis est ad hoc responsum.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fragma">
+                        <h2>Possitne nobis hoc</h2>
+                        <a href=""><h6 class="author">@hotloco</h6></a>
+                        <h6>@hotloco</h6>
+                        <p>
+                            Ego vero volo in virtute vim esse quam maximam; Nemo nostrum istius generis asotos iucunde putat vivere. At iste non dolendi status non vocatur voluptas. Quodcumque in mentem incideret, et quodcumque tamquam occurreret.
+                        </p>
+                        <div class="row social">
+                            <div class="col-md-6 pull-right">
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                <a href="#"><i class="fa fa-repeat"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        
+        </div><!-- /.container -->
+        
+        <script src="/js/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/angular.min.js"></script>
+        <script src="/js/buttons.js"></script>
+        <script src="/controllers/fragmas.js"></script>
+
+  </body>
+  
+</html>
